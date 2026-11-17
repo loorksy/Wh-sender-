@@ -11,8 +11,8 @@
     <string name="send">بدء الإرسال</string>
     <string name="send_again">بدء إرسال جديد</string>
     <string name="close">إغلاق</string>
-    <string name="message_count">عدد الرسائل: %1$d</string>
-    <string name="message_count_zero">عدد الرسائل: 0</string>
+    <string name="message_count">%1$d</string>
+    <string name="message_count_zero">0</string>
     <string name="must_paste">يرجى إدخال الرسائل قبل المتابعة</string>
     <string name="must_open_chat">افتح المحادثة المطلوبة في واتساب أو واتساب المزدوج أو واتساب للأعمال، ثم ابقَ داخل المحادثة</string>
     <string name="dual_app_guide_samsung">على أجهزة سامسونج: افتح واتساب المزدوج (Dual Messenger) يدويًا وادخل المحادثة، ثم ابدأ الإرسال</string>
@@ -69,4 +69,12 @@
     <string name="update_channel">تحديثات التطبيق</string>
     <string name="check_update">التحقق من التحديثات</string>
     <string name="update_latest">أنت تستخدم أحدث إصدار</string>
+    <string name="paste">لصق</string>
+    <string name="mpm_unit">رسالة / دقيقة</string>
+    <string name="count_label">عدد الرسائل</string>
+    <string name="split_para">تقسيم: فقرات</string>
+    <string name="split_line">تقسيم: سطر/رسالة</string>
+    <string name="media_unsupported">إرسال الصور والملفات غير مدعوم حاليًا — النص فقط</string>
+    <string name="attach_image">إرفاق صورة</string>
+    <string name="attach_file">إرفاق ملف</string>
 </resources>

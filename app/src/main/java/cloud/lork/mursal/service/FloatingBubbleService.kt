@@ -62,6 +62,9 @@ class FloatingBubbleService : Service() {
     private var panelSuccess: TextView? = null
     private var panelSend: Button? = null
 
+    // Message split mode: false = paragraphs (blank-line separated, line fallback), true = one per line.
+    private var lineMode = false
+
     private fun themedInflater(): LayoutInflater {
         val themed = ContextThemeWrapper(this, R.style.Theme_Mursal)
         return LayoutInflater.from(themed)
@@ -306,6 +309,31 @@ class FloatingBubbleService : Service() {
         view.findViewById<Button>(R.id.chip1000).setOnClickListener { setMpm(1000) }
         setMpm(DEFAULT_MPM)
 
+        // Paste clipboard text into the input (uses the focused EditText's paste action).
+        view.findViewById<View>(R.id.btnPaste)?.setOnClickListener {
+            panelInput?.let { ed ->
+                ed.requestFocus()
+                runCatching { ed.onTextContextMenuItem(android.R.id.paste) }
+                updateMessageCountPreview()
+            }
+        }
+
+        // Message split mode toggle (paragraphs <-> one per line).
+        val optionsBtn = view.findViewById<TextView>(R.id.btnOptions)
+        optionsBtn?.setText(if (lineMode) R.string.split_line else R.string.split_para)
+        optionsBtn?.setOnClickListener {
+            lineMode = !lineMode
+            optionsBtn.setText(if (lineMode) R.string.split_line else R.string.split_para)
+            updateMessageCountPreview()
+        }
+
+        // Image / file buttons: the sender is text-only for now.
+        val mediaHint = View.OnClickListener {
+            Toast.makeText(this, R.string.media_unsupported, Toast.LENGTH_SHORT).show()
+        }
+        view.findViewById<View>(R.id.btnImage)?.setOnClickListener(mediaHint)
+        view.findViewById<View>(R.id.btnAttach)?.setOnClickListener(mediaHint)
+
         panelSend?.setOnClickListener { startSending() }
         panelInput?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
@@ -336,6 +364,9 @@ class FloatingBubbleService : Service() {
     }
 
     private fun parseMessages(raw: String): List<String> {
+        if (lineMode) {
+            return MessageParser.parse(raw, MessageParser.Mode.LINES)
+        }
         var messages = MessageParser.parse(raw, MessageParser.Mode.PARAGRAPH)
         if (messages.isEmpty()) {
             messages = MessageParser.parse(raw, MessageParser.Mode.LINES)

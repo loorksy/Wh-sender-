@@ -1,200 +1,377 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_panel"
-    android:elevation="12dp"
-    android:orientation="vertical"
-    android:padding="18dp">
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:paddingTop="6dp">
 
+    <!-- Card -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_panel_glass"
+        android:orientation="vertical"
+        android:elevation="14dp"
+        android:paddingHorizontal="18dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="18dp">
+
+        <!-- top row: close (left) + drag handle (center) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/btnClosePanel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left|top"
+                android:background="@drawable/bg_panel_close"
+                android:gravity="center"
+                android:text="✕"
+                android:textColor="@color/panel_text"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="44dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_panel_handle" />
+        </FrameLayout>
+
+        <!-- message input block -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_panel_input"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <EditText
+                android:id="@+id/inputMessages"
+                android:layout_width="match_parent"
+                android:layout_height="108dp"
+                android:background="@android:color/transparent"
+                android:gravity="top|start"
+                android:hint="@string/paste_hint"
+                android:textColorHint="@color/panel_muted"
+                android:textColor="@color/panel_text"
+                android:textCursorDrawable="@drawable/cursor_teal"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnPaste"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_panel_pill"
+                    android:drawableStart="@drawable/ic_paste"
+                    android:drawablePadding="6dp"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/paste"
+                    android:textColor="@color/panel_text"
+                    android:textSize="13sp"
+                    android:drawableTint="@color/panel_text" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/btnImage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_panel_pill"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_image"
+                    android:contentDescription="@string/attach_image"
+                    app:tint="@color/panel_muted"
+                    xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+                <ImageView
+                    android:id="@+id/btnAttach"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_panel_pill"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_attach"
+                    android:contentDescription="@string/attach_file"
+                    app:tint="@color/panel_muted"
+                    xmlns:app="http://schemas.android.com/apk/res-auto" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- options + count row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnOptions"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_panel_pill"
+                android:drawableStart="@drawable/ic_layers"
+                android:drawableEnd="@drawable/ic_chevron"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:paddingHorizontal="14dp"
+                android:text="@string/split_para"
+                android:textColor="@color/panel_text"
+                android:textSize="13sp"
+                android:drawableTint="@color/panel_muted" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@color/panel_divider" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_panel_count"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_email"
+                    android:contentDescription="@string/count_label"
+                    app:tint="#C4B5FD"
+                    xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/count_label"
+                    android:textColor="@color/panel_text"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/textCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/message_count_zero"
+                    android:textColor="@color/panel_teal"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- rate block -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_panel_input"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_speed"
+                    android:contentDescription="@string/mpm_label"
+                    app:tint="@color/panel_text"
+                    xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/mpm_label"
+                    android:textColor="@color/panel_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_panel_pill"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+
+                    <TextView
+                        android:id="@+id/textMpmValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100"
+                        android:textColor="@color/panel_teal"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/mpm_unit"
+                        android:textColor="@color/panel_muted"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seekMpm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layoutDirection="ltr"
+                android:max="999"
+                android:progress="99"
+                android:progressDrawable="@drawable/seek_track"
+                android:thumb="@drawable/seek_thumb"
+                android:splitTrack="false"
+                android:paddingHorizontal="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layoutDirection="ltr"
+                android:weightSum="4">
+
+                <android.widget.Button
+                    android:id="@+id/chip1000"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_panel_preset"
+                    android:minWidth="0dp"
+                    android:text="1000"
+                    android:textAllCaps="false"
+                    android:textColor="@color/panel_text"
+                    android:textSize="14sp" />
+
+                <android.widget.Button
+                    android:id="@+id/chip300"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_panel_preset"
+                    android:minWidth="0dp"
+                    android:text="300"
+                    android:textAllCaps="false"
+                    android:textColor="@color/panel_text"
+                    android:textSize="14sp" />
+
+                <android.widget.Button
+                    android:id="@+id/chip60"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_panel_preset"
+                    android:minWidth="0dp"
+                    android:text="60"
+                    android:textAllCaps="false"
+                    android:textColor="@color/panel_text"
+                    android:textSize="14sp" />
+
+                <android.widget.Button
+                    android:id="@+id/chip10"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="46dp"
+                    android:background="@drawable/bg_panel_preset"
+                    android:minWidth="0dp"
+                    android:text="10"
+                    android:textAllCaps="false"
+                    android:textColor="@color/panel_text"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/status_idle"
+            android:textColor="@color/panel_muted"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textSuccess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_panel_success"
+            android:padding="12dp"
+            android:textColor="@color/panel_success_text"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <android.widget.Button
+            android:id="@+id/btnSend"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_panel_send"
+            android:drawableStart="@drawable/ic_plane"
+            android:drawablePadding="10dp"
+            android:paddingStart="110dp"
+            android:paddingEnd="90dp"
+            android:text="@string/send"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- floating brand circle, overlapping the card top -->
+    <FrameLayout
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_gravity="center_horizontal|top"
+        android:background="@drawable/bg_brand_circle"
+        android:elevation="16dp">
 
         <ImageView
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_brand_circle"
-            android:padding="5dp"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_gravity="center"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_plane" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/bulk_title"
-            android:textColor="@color/text_primary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/btnClosePanel"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:text="✕"
-            android:textColor="@color/text_muted"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/bulk_hint"
-        android:textColor="@color/text_muted"
-        android:textSize="12sp"
-        android:lineSpacingExtra="2dp" />
-
-    <TextView
-        android:id="@+id/textSuccess"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_success"
-        android:padding="12dp"
-        android:textColor="@color/success_text"
-        android:textStyle="bold"
-        android:visibility="gone" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/paste_messages"
-        android:textColor="@color/text_muted"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/inputMessages"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="6dp"
-        android:background="@drawable/bg_input"
-        android:gravity="top|start"
-        android:hint="@string/paste_hint"
-        android:textColorHint="@color/text_muted"
-        android:textColor="@color/text_primary"
-        android:importantForAutofill="no"
-        android:inputType="textMultiLine"
-        android:padding="12dp"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/textCount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_count"
-        android:padding="10dp"
-        android:text="@string/message_count_zero"
-        android:textColor="@color/chip_text"
-        android:textStyle="bold"
-        android:visibility="visible" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/mpm_label"
-        android:textColor="@color/text_muted"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textMpmValue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="100"
-        android:textColor="@color/accent_strong"
-        android:textSize="22sp"
-        android:textStyle="bold" />
-
-    <SeekBar
-        android:id="@+id/seekMpm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="999"
-        android:progress="99"
-        android:progressTint="@color/accent"
-        android:thumbTint="@color/accent" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/chip10"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:minWidth="0dp"
-            android:paddingHorizontal="14dp"
-            android:backgroundTint="@color/surface_alt"
-            android:textColor="@color/text_primary"
-            android:text="10"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/chip60"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:layout_marginStart="6dp"
-            android:minWidth="0dp"
-            android:paddingHorizontal="14dp"
-            android:backgroundTint="@color/surface_alt"
-            android:textColor="@color/text_primary"
-            android:text="60"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/chip300"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:layout_marginStart="6dp"
-            android:minWidth="0dp"
-            android:paddingHorizontal="14dp"
-            android:backgroundTint="@color/surface_alt"
-            android:textColor="@color/text_primary"
-            android:text="300"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/chip1000"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:layout_marginStart="6dp"
-            android:minWidth="0dp"
-            android:paddingHorizontal="14dp"
-            android:backgroundTint="@color/surface_alt"
-            android:textColor="@color/text_primary"
-            android:text="1000"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="@string/status_idle"
-        android:textColor="@color/text_muted"
-        android:textSize="12sp" />
-
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/accent"
-        android:text="@string/send"
-        android:textColor="@color/on_accent"
-        android:textSize="16sp" />
-</LinearLayout>
+    </FrameLayout>
+</FrameLayout>
