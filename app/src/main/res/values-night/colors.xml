@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand gradient brightened a touch for dark surfaces -->
+    <color name="brand_start">#3B82F6</color>
+    <color name="brand_end">#34D399</color>
+
+    <!-- Semantic surface / text (dark) -->
+    <color name="bg">#0B1220</color>
+    <color name="surface">#151D2B</color>
+    <color name="surface_alt">#1B2436</color>
+    <color name="stroke">#2A3647</color>
+    <color name="text_primary">#E8EDF5</color>
+    <color name="text_muted">#9AA7B8</color>
+
+    <!-- Actions -->
+    <color name="accent">#2DD4BF</color>
+    <color name="accent_strong">#14B8A6</color>
+    <color name="on_accent">#06241F</color>
+
+    <!-- Info chip / message count -->
+    <color name="chip_bg">#1B2740</color>
+    <color name="chip_stroke">#2E3F5F</color>
+    <color name="chip_text">#C7D2FE</color>
+
+    <!-- Success banner -->
+    <color name="success_bg">#0F2E22</color>
+    <color name="success_stroke">#14603F</color>
+    <color name="success_text">#34D399</color>
+
+    <color name="danger">#F87171</color>
+    <color name="on_scrim">#FFFFFF</color>
+    <color name="scrim">#CC000000</color>
+</resources>
