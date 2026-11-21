@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Popup panel design tokens — DARK (soft black). Same names as values/panel_colors.xml. -->
+<resources>
+    <!-- Surfaces -->
+    <color name="panel_surface">#1C1C1E</color>
+    <color name="panel_card_stroke">#1FFFFFFF</color>
+    <color name="panel_field">#2A2A2D</color>
+    <color name="panel_field_stroke">#36363A</color>
+    <color name="panel_chip">#3A3A3E</color>
+    <color name="panel_chip_stroke">#46464B</color>
+    <color name="panel_segment_on">#48484C</color>
+    <color name="panel_segment_on_stroke">#48484C</color>
+    <color name="panel_ripple">#1FFFFFFF</color>
+
+    <!-- Text -->
+    <color name="panel_text">#F2F2F4</color>
+    <color name="panel_text2">#A3A3AB</color>
+    <color name="panel_text3">#7C7C85</color>
+
+    <!-- Accent -->
+    <color name="panel_accent">#2DD4BF</color>
+    <color name="panel_on_accent">#04211D</color>
+    <color name="panel_accent_soft">#163A36</color>
+    <color name="panel_accent_text">#5EEAD4</color>
+    <color name="panel_on_accent_ripple">#29000000</color>
+    <color name="panel_text_highlight">#4D2DD4BF</color>
+
+    <!-- Slider -->
+    <color name="panel_seek_track">#3A3A3E</color>
+
+    <!-- Success screen -->
+    <color name="panel_success_bg">#132A20</color>
+    <color name="panel_success">#34D399</color>
+    <color name="panel_on_success">#052E1C</color>
+
+    <!-- Floating bubble -->
+    <color name="panel_bubble_bg">#2A2A2D</color>
+    <color name="panel_bubble_stroke">#29FFFFFF</color>
+</resources>

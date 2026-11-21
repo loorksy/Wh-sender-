@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rounded "send" glyph (Material Symbols, Apache-2.0), mirrored to point left for the RTL UI. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="960"
+    android:viewportHeight="960">
+    <group
+        android:pivotX="480"
+        android:scaleX="-1"
+        android:translateY="960">
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M176,-183Q156,-175 138,-186.5T120,-220V-400L440,-480L120,-560V-744Q120,-766 138,-777.5T176,-781L792,-521Q817,-510 817,-484T792,-447L176,-183Z" />
+    </group>
+</vector>

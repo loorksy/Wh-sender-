@@ -6,12 +6,11 @@
     <string name="bulk_title">جلسة الإرسال</string>
     <string name="bulk_hint">الصق الرسائل، راجع العدد، ثم ابدأ الإرسال داخل محادثة واتساب أو واتساب المزدوج.</string>
     <string name="paste_messages">الرسائل</string>
-    <string name="paste_hint">أدخل الرسائل هنا\n\nافصل بين كل رسالة بسطر فارغ</string>
-    <string name="mpm_label">معدل الإرسال (رسالة / دقيقة)</string>
+    <string name="paste_hint">اكتب أو الصق الرسائل هنا\nافصل بين كل رسالة بسطر فارغ</string>
+    <string name="mpm_label">معدل الإرسال</string>
     <string name="send">بدء الإرسال</string>
     <string name="send_again">بدء إرسال جديد</string>
     <string name="close">إغلاق</string>
-    <string name="message_count">%1$d</string>
     <string name="message_count_zero">0</string>
     <string name="must_paste">يرجى إدخال الرسائل قبل المتابعة</string>
     <string name="must_open_chat">افتح المحادثة المطلوبة في واتساب أو واتساب المزدوج أو واتساب للأعمال، ثم ابقَ داخل المحادثة</string>
@@ -33,12 +32,8 @@
     <string name="start_bubble">تفعيل الإرسال</string>
     <string name="start_bubble_hint">بعد التفعيل، اضغط على الأيقونة العائمة لفتح لوحة الإرسال.</string>
     <string name="bubble_started">تم تفعيل الإرسال</string>
-    <string name="status_idle">جاهز للبدء</string>
     <string name="status_waiting_chat">بانتظار فتح المحادثة…</string>
     <string name="status_sending">جارٍ الإرسال…</string>
-    <string name="status_done">اكتملت العملية بنجاح</string>
-    <string name="status_stopped">تم إيقاف العملية</string>
-    <string name="success_all_sent">تم إرسال %1$d رسالة بنجاح</string>
     <string name="notification_channel">مرسال</string>
     <string name="bubble_notification_title">الإرسال مفعّل</string>
     <string name="bubble_notification_text">اضغط على الأيقونة العائمة لفتح لوحة الإرسال</string>
@@ -72,9 +67,11 @@
     <string name="paste">لصق</string>
     <string name="mpm_unit">رسالة / دقيقة</string>
     <string name="count_label">عدد الرسائل</string>
-    <string name="split_para">تقسيم: فقرات</string>
-    <string name="split_line">تقسيم: سطر/رسالة</string>
-    <string name="media_unsupported">إرسال الصور والملفات غير مدعوم حاليًا — النص فقط</string>
-    <string name="attach_image">إرفاق صورة</string>
-    <string name="attach_file">إرفاق ملف</string>
+    <string name="split_para">فقرات</string>
+    <string name="split_line">أسطر</string>
+    <string name="paste_hint_lines">اكتب أو الصق الرسائل هنا\nكل سطر يُرسل كرسالة مستقلة</string>
+    <string name="split_mode_desc">طريقة تقسيم الرسائل</string>
+    <string name="success_title">تم الإرسال بنجاح</string>
+    <string name="success_subtitle">أُرسلت جميع الرسائل في المحادثة المفتوحة</string>
+    <string name="success_sent_label">الرسائل المُرسلة</string>
 </resources>

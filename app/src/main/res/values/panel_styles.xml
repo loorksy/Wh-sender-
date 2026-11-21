@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Popup panel typography (IBM Plex Sans Arabic, bundled in res/font).
+    Android 8+ renders the bundled font; Android 7 falls back to the system font.
+-->
+<resources>
+    <style name="PanelText">
+        <item name="android:fontFamily">@font/plex_arabic_regular</item>
+        <item name="android:textColor">@color/panel_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="PanelText.Section">
+        <item name="android:fontFamily">@font/plex_arabic_semibold</item>
+        <item name="android:textColor">@color/panel_text2</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="PanelText.Caption">
+        <item name="android:textColor">@color/panel_text3</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="PanelText.Input">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColorHint">@color/panel_text3</item>
+        <item name="android:textColorHighlight">@color/panel_text_highlight</item>
+    </style>
+
+    <style name="PanelText.Chip">
+        <item name="android:fontFamily">@font/plex_arabic_medium</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="PanelText.Badge">
+        <item name="android:fontFamily">@font/plex_arabic_semibold</item>
+        <item name="android:textColor">@color/panel_badge_text</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="PanelText.Value">
+        <item name="android:fontFamily">@font/plex_arabic_semibold</item>
+        <item name="android:textColor">@color/panel_accent_text</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="PanelText.Segment">
+        <item name="android:fontFamily">@font/plex_arabic_medium</item>
+        <item name="android:textColor">@color/panel_segment_text</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@drawable/bg_panel_segment</item>
+    </style>
+
+    <style name="PanelText.Button">
+        <item name="android:fontFamily">@font/plex_arabic_semibold</item>
+        <item name="android:textColor">@color/panel_send_text</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="PanelText.ButtonQuiet">
+        <item name="android:fontFamily">@font/plex_arabic_semibold</item>
+        <item name="android:textColor">@color/panel_text2</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="PanelText.SuccessTitle">
+        <item name="android:fontFamily">@font/plex_arabic_semibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="PanelText.SuccessBody">
+        <item name="android:textColor">@color/panel_text2</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="PanelText.Stat">
+        <item name="android:fontFamily">@font/plex_arabic_semibold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+</resources>

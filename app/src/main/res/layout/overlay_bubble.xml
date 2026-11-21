@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Floating bubble. The 9dp transparent margin leaves room for the elevation shadow. -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="58dp"
-    android:layout_height="58dp">
+    android:layout_width="72dp"
+    android:layout_height="72dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <FrameLayout
         android:id="@+id/bubbleIcon"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
         android:layout_gravity="center"
         android:background="@drawable/bg_bubble"
-        android:elevation="8dp">
+        android:elevation="6dp">
 
         <ImageView
-            android:layout_width="27dp"
-            android:layout_height="27dp"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
             android:layout_gravity="center"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_plane" />
+            android:src="@drawable/ic_send_rounded"
+            android:tint="@color/panel_accent" />
     </FrameLayout>
 </FrameLayout>
