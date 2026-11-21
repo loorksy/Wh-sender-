@@ -76,8 +76,10 @@ class FloatingBubbleService : Service() {
     // Message split mode: false = paragraphs (blank-line separated, line fallback), true = one per line.
     private var lineMode = false
 
-    // Sending rate (messages/minute); kept across panel openings.
+    // Sending rate (messages/minute). The last chosen value is saved on the device and
+    // restored next time (even after the session is closed or the phone restarts).
     private var currentMpm = DEFAULT_MPM
+    private val ratePrefs by lazy { getSharedPreferences(PREFS_NAME, MODE_PRIVATE) }
 
     private fun themedInflater(): LayoutInflater {
         val themed = ContextThemeWrapper(this, R.style.Theme_Mursal)
@@ -88,6 +90,7 @@ class FloatingBubbleService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        currentMpm = ratePrefs.getInt(KEY_MPM, DEFAULT_MPM).coerceIn(1, BulkSession.MAX_MPM)
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         startForeground(NOTIFICATION_ID, buildNotification())
         showBubble()
@@ -320,7 +323,7 @@ class FloatingBubbleService : Service() {
                 renderMpm()
             }
             override fun onStartTrackingTouch(seekBar: SeekBar?) = Unit
-            override fun onStopTrackingTouch(seekBar: SeekBar?) = Unit
+            override fun onStopTrackingTouch(seekBar: SeekBar?) = saveMpm()
         })
 
         // Rate presets: segmented control; the matching preset stays highlighted.
@@ -331,7 +334,7 @@ class FloatingBubbleService : Service() {
             view.findViewById<View>(R.id.chip1000) to 1000,
         )
         rateChips.forEach { (chip, value) -> chip.setOnClickListener { setMpm(value) } }
-        // Keep the last chosen rate when the panel reopens (like the split mode).
+        // Show the last chosen (saved) rate.
         setMpm(currentMpm)
 
         // Paste clipboard text into the input (uses the focused EditText's paste action).
@@ -474,6 +477,11 @@ class FloatingBubbleService : Service() {
         currentMpm = value.coerceIn(1, BulkSession.MAX_MPM)
         panelSeek?.progress = mpmToProgress(currentMpm)
         renderMpm()
+        saveMpm()
+    }
+
+    private fun saveMpm() {
+        ratePrefs.edit().putInt(KEY_MPM, currentMpm).apply()
     }
 
     private fun renderMpm() {
@@ -659,7 +667,9 @@ class FloatingBubbleService : Service() {
         private const val NOTIFICATION_ID = 4202
         const val ACTION_STOP_SERVICE = "cloud.lork.mursal.STOP_BUBBLE"
         const val ACTION_SHOW_PANEL = "cloud.lork.mursal.SHOW_PANEL"
-        private const val DEFAULT_MPM = 100
+        private const val DEFAULT_MPM = 300
+        private const val PREFS_NAME = "panel_prefs"
+        private const val KEY_MPM = "rate_mpm"
         private const val SEEK_STEPS = 1000
 
         fun start(context: Context) {
